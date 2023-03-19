@@ -19,16 +19,17 @@ namespace arvslam {
 
         static bool parseYamlFile(const std::string& file_path);
 
+        template<typename T>
+        static T get(const std::string& key) {
+            return T(Config::m_config->m_file[key]);
+        }
 
     private:
         Config() {};
         static std::shared_ptr<Config> m_config;
-        static cv::FileStorage m_file;
+        cv::FileStorage m_file;
 
-        template<typename T>
-        static T get(const std::string& key) {
-            return Config::m_config->m_file[key];
-        }
+
     };
 } // namespace arvslam
 

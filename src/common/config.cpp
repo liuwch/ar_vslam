@@ -10,10 +10,10 @@ namespace arvslam {
         if (m_config == nullptr) {
             m_config = std::shared_ptr<Config>(new Config);
         }
-        m_file = cv::FileStorage(file_path.c_str(), cv::FileStorage::READ);
+        m_config->m_file = cv::FileStorage(file_path.c_str(), cv::FileStorage::READ);
         if (m_config->m_file.isOpened() == false) {
             std::cout << "Parse File " << file_path << " is failed!" << std::endl;
-            m_file.release();
+            m_config->m_file.release();
             return false;
         }
         return true;
@@ -25,5 +25,5 @@ namespace arvslam {
         }
     }
 
-
+    std::shared_ptr<Config> Config::m_config = nullptr;
 } // namespace arvslam

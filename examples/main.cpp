@@ -2,10 +2,12 @@
 
 #include "common/config.h"
 
-int main() {
-    std::string yaml_path = "../config/default.yaml";
-    arvslam::Config::parseYamlFile(yaml_path);
-    
+int main(int argc, char** argv) {
+    std::string yaml_path = "/home/liuwch/dev/ar_vslam/config/default.yaml";
+    bool flag = arvslam::Config::parseYamlFile(yaml_path);
+    std::cout << "parse file " << flag << std::endl;
+//    std::string dataset_path = arvslam::Config::get<std::string>("dataset_dir");
+//    arvslam::Config::get<int>("num_features");
     std::cout << "Hello, World!" << std::endl;
     return 0;
 }
