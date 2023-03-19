@@ -3,7 +3,9 @@
 #include "common/config.h"
 
 int main() {
-    arvslam::Config();
+    std::string yaml_path = "../config/default.yaml";
+    arvslam::Config::parseYamlFile(yaml_path);
+    
     std::cout << "Hello, World!" << std::endl;
     return 0;
 }
