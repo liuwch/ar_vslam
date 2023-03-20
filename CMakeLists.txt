@@ -18,7 +18,10 @@ if (USE_BACKWARD)
     find_package(Backward REQUIRED)
 endif()
 
-set(SOURCE_FILE src/common/config.cpp)
+set(SOURCE_FILE src/common/config.cpp
+                src/data/camera.cpp
+                src/data/frame.cpp
+        )
 
 include_directories(src)
 
