@@ -13,6 +13,18 @@ if (OpenCV_FOUND)
 endif()
 include_directories(${OpenCV_INCLUDE_DIRS})
 
+# Eigen
+include_directories("/usr/local/include/eigen3")
+
+# Sophus
+find_package(Sophus REQUIRED)
+message(Sophus dir: ${Sophus_INCLUDE_DIRS})
+
+# g2o
+find_package(G2O REQUIRED)
+include_directories(${G2O_INCLUDE_DIRS})
+message("g2o dir: " ${G2O_INCLUDE_DIRS})
+
 # Backward
 if (USE_BACKWARD)
     find_package(Backward REQUIRED)
@@ -21,7 +33,11 @@ endif()
 set(SOURCE_FILE src/common/config.cpp
                 src/data/camera.cpp
                 src/data/frame.cpp
-        src/data/landmark.cpp src/data/landmark.h src/data/feature.cpp src/data/feature.h src/data/map_database.cpp src/data/map_database.h src/module/tracking.cpp src/module/tracking.h src/module/mapping.cpp src/module/mapping.h)
+                src/data/landmark.cpp
+                src/data/feature.cpp
+                src/data/map_database.cpp
+                src/module/tracking.cpp
+                src/module/mapping.cpp)
 
 include_directories(src)
 

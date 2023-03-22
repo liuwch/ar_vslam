@@ -5,10 +5,24 @@
 #ifndef ARVSLAM_FRAME_H
 #define ARVSLAM_FRAME_H
 
+#include <vector>
+#include <memory>
+#include <opencv2/core/core.hpp>
 
-class frame {
+namespace arvslam {
+namespace data {
 
+class Frame {
+public:
+    typedef std::shared_ptr<Frame> ptr;
+    Frame() = default;
+    ~Frame();
+
+    cv::Mat m_featureLeft, m_featureRight;
+
+private:
 };
+}
+} // namespace arvslam
 
-
-#endif //ARVSLAM_FRAME_Hs
+#endif //ARVSLAM_FRAME_H
