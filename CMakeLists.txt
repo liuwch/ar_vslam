@@ -21,7 +21,7 @@ endif()
 set(SOURCE_FILE src/common/config.cpp
                 src/data/camera.cpp
                 src/data/frame.cpp
-        )
+        src/data/landmark.cpp src/data/landmark.h src/data/feature.cpp src/data/feature.h src/data/map_database.cpp src/data/map_database.h src/module/tracking.cpp src/module/tracking.h src/module/mapping.cpp src/module/mapping.h)
 
 include_directories(src)
 
